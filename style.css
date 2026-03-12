@@ -1,0 +1,502 @@
+/*
+  Stijlbestand voor mijn portfolio website.
+  Ik heb geprobeerd het overzichtelijk te houden met variabelen bovenaan.
+  Kleuren komen van het originele kleurenschema maar dan wat aantrekkelijker gebruikt.
+*/
+
+/* Google Fonts importeren - Poppins voor koppen, DM Sans voor tekst */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+/* Kleuren als variabelen zodat ik ze maar 1 keer hoef te definiëren */
+:root {
+  --light-mint: #B5FFE1;
+  --soft-green: #93E5AB;
+  --medium-green: #65B891;
+  --teal: #4E878C;
+  --dark: #00241B;
+  --white: #ffffff;
+  --card-bg: #f7fffc;
+  --shadow: 0 4px 20px rgba(0, 36, 27, 0.1);
+}
+
+/* Reset*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--dark);
+  background-color: #edfff5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Achtergrond patroon*/
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, rgba(147, 229, 171, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(78, 135, 140, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Container zorgt dat content niet te breed wordt op grote schermen */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ========================
+   HEADER EN NAVIGATIE
+   ======================== */
+
+.site-header {
+  background-color: var(--dark);
+  border-bottom: 3px solid var(--teal);
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Zorgt dat header altijd bovenop staat */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  color: var(--light-mint);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+/* Groen streepje onder de logo tekst */
+.logo span {
+  color: var(--soft-green);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(181, 255, 225, 0.75);
+  padding: 0.45rem 0.9rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease; /* Zorgt voor vloeiende overgang bij hover */
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--light-mint);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(181, 255, 225, 0.2);
+}
+
+/* Huidige pagina krijgt een andere stijl */
+.nav-links a[aria-current="page"] {
+  color: var(--dark);
+  background-color: var(--soft-green);
+  font-weight: 700;
+}
+
+/* ========================
+   HERO SECTIE (homepagina)
+   ======================== */
+
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
+  color: var(--dark);
+}
+
+/* Groen gemarkeerd woord in de hero titel */
+.hero h1 .highlight {
+  background-color: var(--soft-green);
+  padding: 0 0.3em;
+  border-radius: 0.2em;
+  display: inline-block;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #2a5c4a;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========================
+   KNOPPEN
+   ======================== */
+
+.button,
+button[type="submit"] {
+  display: inline-block;
+  background-color: var(--teal);
+  color: var(--white);
+  border: 2px solid var(--teal);
+  border-radius: 2rem;
+  padding: 0.7rem 1.4rem;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.button:hover,
+button[type="submit"]:hover {
+  background-color: var(--dark);
+  border-color: var(--dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 36, 27, 0.2);
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 2px solid var(--teal);
+  color: var(--teal);
+}
+
+.button-outline:hover {
+  background-color: var(--teal);
+  color: var(--white);
+}
+
+/* ========================
+   ALGEMENE SECTIES
+   ======================== */
+
+.section {
+  padding: 3rem 0;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #1a3d30;
+}
+
+.intro-text {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  color: #2a5c4a;
+  margin-bottom: 2rem;
+}
+
+/* ========================
+   KAART STIJL
+   ======================== */
+
+.card {
+  background-color: var(--card-bg);
+  border: 1.5px solid var(--soft-green);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* ========================
+   PROJECT GRID EN KAARTEN
+   ======================== */
+
+.project-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.project-card {
+  background-color: var(--white);
+  border: 1.5px solid #d0f0e0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  box-shadow: 0 2px 12px rgba(0, 36, 27, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gekleurde streep bovenaan elke project kaart */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--soft-green));
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 36, 27, 0.12);
+}
+
+.project-card h2 {
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #3a6b59;
+  flex-grow: 1; /* Zorgt dat de knop altijd onderaan blijft */
+}
+
+/* Kleinere knop voor in de project kaarten */
+.project-card .button {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+}
+
+/* ========================
+   ABOUT ME PAGINA
+   ======================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Blokje met een skill of feitje */
+.about-item {
+  background-color: var(--white);
+  border: 1.5px solid #d0f0e0;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+}
+
+.about-item h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+}
+
+/* Tags voor skills */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: var(--light-mint);
+  color: var(--dark);
+  border-radius: 2rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--soft-green);
+}
+
+/* ========================
+   CONTACT PAGINA
+   ======================== */
+
+.contact-list {
+  list-style: none;
+  margin-bottom: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.contact-list li strong {
+  color: var(--teal);
+  min-width: 70px;
+}
+
+/* Formulier staat onder elkaar */
+.contact-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-bottom: -0.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #c0e8d4;
+  border-radius: 0.6rem;
+  font: inherit;
+  font-size: 0.95rem;
+  background-color: var(--white);
+  color: var(--dark);
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+/* Groene rand als je in het veld klikt */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(78, 135, 140, 0.15);
+}
+
+.contact-form textarea {
+  resize: vertical; /* Alleen verticaal aanpasbaar */
+  min-height: 130px;
+}
+
+/* ========================
+   PROJECT DETAIL PAGINA
+   ======================== */
+
+.project-detail-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1.5px solid #d0f0e0;
+}
+
+.project-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.badge {
+  background-color: var(--light-mint);
+  border: 1px solid var(--soft-green);
+  border-radius: 2rem;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+
+.site-footer {
+  margin-top: auto;
+  background-color: var(--dark);
+  color: rgba(181, 255, 225, 0.7);
+  padding: 1.5rem 0;
+  font-size: 0.88rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-inner a {
+  color: var(--soft-green);
+  text-decoration: none;
+}
+
+.footer-inner a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   MOBIEL
+   ======================== */
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
