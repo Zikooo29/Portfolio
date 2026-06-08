@@ -193,9 +193,17 @@ p {
   align-items: end;
   padding: clamp(4rem, 9vw, 7rem) 0 3rem;
   background:
-    linear-gradient(90deg, rgba(6, 47, 42, 0.9) 0%, rgba(6, 47, 42, 0.74) 48%, rgba(6, 47, 42, 0.28) 100%),
-    url("assets/ar-project.png") center / cover no-repeat;
+    radial-gradient(circle at 80% 20%, rgba(159, 243, 196, 0.16), transparent 32%),
+    linear-gradient(135deg, #062f2a 0%, #0d4a42 58%, #123d38 100%);
   color: #ffffff;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 720px) minmax(220px, 300px);
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .hero-content {
@@ -257,6 +265,44 @@ p {
 .hero-stat span {
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.84rem;
+}
+
+.hero-profile-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  background: rgba(6, 47, 42, 0.46);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.hero-profile-card img {
+  width: min(220px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 1px solid rgba(159, 243, 196, 0.32);
+  border-radius: 50%;
+  justify-self: center;
+}
+
+.hero-profile-card strong,
+.hero-profile-card span {
+  display: block;
+}
+
+.hero-profile-card strong {
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+}
+
+.hero-profile-card span {
+  color: var(--mint);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .button,
@@ -385,6 +431,12 @@ button[type="submit"]:hover {
   object-fit: cover;
 }
 
+.project-thumb-phone {
+  object-fit: contain;
+  padding: 0.35rem;
+  background: linear-gradient(135deg, #f15b83, #ed82b5);
+}
+
 .project-placeholder {
   display: grid;
   place-items: center;
@@ -417,6 +469,24 @@ button[type="submit"]:hover {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.about-profile {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.about-profile img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: 50% 28%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .about-item {
@@ -562,8 +632,53 @@ button[type="submit"]:hover {
   border: 1px solid var(--line);
 }
 
+.project-hero-contain {
+  object-fit: contain;
+  background: #071325;
+}
+
+.project-hero-phone {
+  width: min(360px, 100%);
+  aspect-ratio: 9 / 19.5;
+  object-fit: contain;
+  padding: 0.6rem;
+  margin-inline: auto;
+  background: linear-gradient(135deg, #f15b83, #ed82b5);
+}
+
 .detail-body {
   max-width: 78ch;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.project-gallery figure {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgba(16, 35, 31, 0.1);
+}
+
+.project-gallery img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  object-position: top;
+  background: #071325;
+}
+
+.project-gallery figcaption {
+  padding: 0.75rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
 }
 
 .site-footer {
@@ -615,10 +730,17 @@ button[type="submit"]:hover {
     padding-top: 5rem;
   }
 
+  .hero-layout,
   .hero-stats,
   .summary-grid,
-  .contact-panel {
+  .contact-panel,
+  .about-profile,
+  .project-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .hero-profile-card {
+    max-width: 260px;
   }
 }
 
@@ -648,6 +770,10 @@ button[type="submit"]:hover {
   .about-grid,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-profile img {
+    min-height: 260px;
   }
 
   .card,
