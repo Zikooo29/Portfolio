@@ -345,6 +345,29 @@ button[type="submit"]:hover {
   border-color: #ffffff;
 }
 
+.button-secondary {
+  background: var(--surface);
+  border-color: rgba(47, 143, 136, 0.28);
+  color: var(--dark);
+}
+
+.button-secondary:hover {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: #ffffff;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.button-back {
+  margin-top: 0.35rem;
+}
+
 .card,
 .project-card,
 .about-item,
