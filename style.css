@@ -460,6 +460,11 @@ button[type="submit"]:hover {
   background: linear-gradient(135deg, #f15b83, #ed82b5);
 }
 
+.project-thumb-clean {
+  background: #f7f8f5;
+  border: 1px solid rgba(6, 47, 42, 0.1);
+}
+
 .project-placeholder {
   display: grid;
   place-items: center;
@@ -669,8 +674,53 @@ button[type="submit"]:hover {
   background: linear-gradient(135deg, #f15b83, #ed82b5);
 }
 
+.project-hero-clean {
+  background: #f7f8f5;
+}
+
 .detail-body {
   max-width: 78ch;
+}
+
+.case-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.case-section,
+.case-note {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.case-section {
+  padding: 1.15rem;
+}
+
+.case-note {
+  max-width: 78ch;
+  padding: 1.2rem;
+  margin: 1.4rem 0;
+}
+
+.case-section h2,
+.case-note h2 {
+  font-size: 1.18rem;
+}
+
+.case-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+
+.case-note p {
+  margin-bottom: 0;
 }
 
 .project-gallery {
@@ -758,6 +808,7 @@ button[type="submit"]:hover {
   .summary-grid,
   .contact-panel,
   .about-profile,
+  .case-sections,
   .project-gallery {
     grid-template-columns: 1fr;
   }
